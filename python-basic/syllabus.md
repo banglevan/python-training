@@ -85,7 +85,7 @@
 2. String processing functions
 3. Data validation functions
 
-**Mini Project:** Math Toolkit
+**Mini Project:** Math Toolkit **<-done->**
 - Các hàm toán học
 - Unit conversion
 - Geometric calculations
@@ -97,12 +97,12 @@
 - Package structure
 - Virtual environments
 
-**Bài tập:**
+**Bài tập:** **<-done->**
 1. Tạo module utility
 2. Sử dụng external packages
 3. Package organization
 
-**Mini Project:** Personal Library
+**Mini Project:** Personal Library **<-done->**
 - Module quản lý sách
 - Import/Export data
 - Search và filter
