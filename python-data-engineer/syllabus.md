@@ -264,25 +264,6 @@
      - ArangoDB: Multi-model database
      - OrientDB: Graph + Document DB
 
-## Final Project Options
-1. **Data Pipeline System**
-   - Multiple data sources
-   - Complex transformations
-   - Quality monitoring
-   - Performance optimization
-
-2. **Analytics Platform**
-   - Data warehouse
-   - ETL processes
-   - Analysis capabilities
-   - Reporting dashboard
-
-3. **Real-time Processing**
-   - Streaming data
-   - Real-time analytics
-   - Monitoring & alerts
-   - Performance tuning
-
 ## Tuần 6: File Systems & Storage
 
 ### Traditional File Systems
@@ -608,79 +589,1140 @@
    - Cloud Native:
      - Kinesis, Pub/Sub
 
-## Cấu trúc thư mục
-```
-python-data-engineer/
-├── README.md
-├── syllabus.md
-├── week1/
-│   ├── exercises/
-│   │   ├── etl_basic.py
-│   │   ├── data_validation.py
-│   │   └── data_quality.py
-│   └── mini_project/
-│       └── log_analyzer.py
-├── week2/
-│   ├── exercises/
-│   │   ├── sql_ops.py
-│   │   ├── db_design.py
-│   │   └── query_perf.py
-│   └── mini_project/
-│       └── ecommerce_db.py
-├── week3/
-│   ├── exercises/
-│   │   ├── spark_basics.py
-│   │   ├── data_processing.py
-│   │   └── perf_optimization.py
-│   └── mini_project/
-│       └── customer_analytics.py
-├── week4/
-│   ├── exercises/
-│   │   ├── dim_modeling.py
-│   │   ├── dwh_ops.py
-│   │   └── olap_proc.py
-│   └── mini_project/
-│       └── sales_dwh.py
-├── week5/
-│   ├── exercises/
-│   │   ├── postgres_advanced.py
-│   │   ├── mysql_perf.py
-│   │   ├── mongo_ops.py
-│   │   ├── redis_cache.py
-│   │   ├── cassandra_model.py
-│   │   ├── elastic_search.py
-│   │   ├── influx_metrics.py
-│   │   ├── timescale_analytics.py
-│   │   ├── neo4j_graph.py
-│   │   └── neptune_analytics.py
-│   └── mini_project/
-│       └── multi_db_system.py
-├── week6/
-│   ├── exercises/
-│   │   ├── fs_operations.py
-│   │   ├── nfs_client.py
-│   │   ├── hdfs_ops.py
-│   │   ├── ceph_storage.py
-│   │   ├── s3_ops.py
-│   │   ├── minio_client.py
-│   │   ├── storage_opt.py
-│   │   └── data_security.py
-│   └── mini_project/
-│       └── hybrid_storage.py
-├── week7/
-│   ├── exercises/
-│   │   ├── rabbitmq_ops.py
-│   │   ├── activemq_integration.py
-│   │   ├── kafka_ops.py
-│   │   ├── pulsar_messaging.py
-│   │   ├── redis_queue.py
-│   │   ├── redis_streams.py
-│   │   ├── mqtt_broker.py
-│   │   └── iot_integration.py
-│   └── mini_project/
-│       └── realtime_pipeline.py
-└── final_project/
-    ├── data_pipeline/
-    ├── analytics_platform/
-    └── realtime_processing/
-``` 
+## Tuần 8: Change Data Capture (CDC)
+
+### CDC Fundamentals
+- Log-based CDC
+- Trigger-based CDC
+- Polling-based CDC
+- Hybrid approaches
+
+#### Bài tập
+1. **CDC Patterns**
+   - Implementation strategies
+   - Change detection
+   - Data versioning
+   - Path: `/week8/exercises/cdc_patterns.py`
+
+2. **Change Tracking**
+   - Version control
+   - Audit logging
+   - History management
+   - Path: `/week8/exercises/change_tracking.py`
+
+### Database CDC
+- Debezium
+- Oracle GoldenGate
+- AWS DMS
+- Maxwell's daemon
+
+#### Bài tập
+1. **Debezium Integration**
+   - Connector setup
+   - Event streaming
+   - Schema evolution
+   - Error handling
+   - Path: `/week8/exercises/debezium_integration.py`
+
+2. **DMS Operations**
+   - Migration tasks
+   - Replication
+   - Monitoring
+   - Path: `/week8/exercises/dms_operations.py`
+
+### Streaming CDC
+- Kafka Connect
+- Apache Flink CDC
+- Spark Structured Streaming
+- Redis CDC
+
+#### Bài tập
+1. **Kafka CDC**
+   - Connect setup
+   - Transform configs
+   - Sink management
+   - Path: `/week8/exercises/kafka_cdc.py`
+
+2. **Flink CDC**
+   - Source connectors
+   - Processing operators
+   - Sink integration
+   - Path: `/week8/exercises/flink_cdc.py`
+
+### CDC Use Cases
+- Data Replication
+- Event Sourcing
+- Audit Systems
+- Cache Invalidation
+
+#### Bài tập
+1. **Data Sync**
+   - Multi-source sync
+   - Conflict resolution
+   - Recovery strategies
+   - Path: `/week8/exercises/data_sync.py`
+
+2. **Event Store**
+   - Event capturing
+   - State reconstruction
+   - Event replay
+   - Path: `/week8/exercises/event_store.py`
+
+### Mini Project: Real-time Data Sync System
+- Multiple source CDC
+- Data transformation
+- Conflict handling
+- Monitoring & alerts
+- Path: `/week8/mini_project/realtime_sync.py`
+
+### CDC Tool Selection Guide
+1. **Log-based CDC**
+   - Use cases:
+     - High-volume changes
+     - Minimal source impact
+     - Real-time replication
+   - Options:
+     - Debezium: Open source, mature
+     - Maxwell: MySQL focused
+     - GoldenGate: Enterprise grade
+
+2. **Trigger-based CDC**
+   - Use cases:
+     - Complex change tracking
+     - Custom business logic
+     - Immediate notification
+   - Options:
+     - Database triggers
+     - Application triggers
+     - Hybrid solutions
+
+3. **Polling-based CDC**
+   - Use cases:
+     - Simple requirements
+     - Legacy systems
+     - Batch processing
+   - Options:
+     - Timestamp-based
+     - Version number
+     - Checksum comparison
+
+### Feature Comparison
+1. **Performance Impact**
+   - Source Database:
+     - Log-based: Minimal
+     - Trigger-based: High
+     - Polling-based: Moderate
+   
+   - Network Traffic:
+     - Log-based: Moderate
+     - Trigger-based: High
+     - Polling-based: High
+
+2. **Reliability**
+   - Data Consistency:
+     - Log-based: High
+     - Trigger-based: High
+     - Polling-based: Moderate
+   
+   - Change Detection:
+     - Log-based: Immediate
+     - Trigger-based: Immediate
+     - Polling-based: Delayed
+
+3. **Implementation**
+   - Complexity:
+     - Log-based: High
+     - Trigger-based: Moderate
+     - Polling-based: Low
+   
+   - Maintenance:
+     - Log-based: Moderate
+     - Trigger-based: High
+     - Polling-based: Low
+
+### Best Practices
+1. **Design Considerations**
+   - Change data format
+   - Order preservation
+   - Error handling
+   - Recovery procedures
+
+2. **Performance Optimization**
+   - Batch processing
+   - Parallel processing
+   - Resource management
+   - Network optimization
+
+3. **Monitoring & Management**
+   - Lag monitoring
+   - Error detection
+   - Alert system
+   - Performance metrics
+
+4. **Security Aspects**
+   - Data encryption
+   - Access control
+   - Audit logging
+   - Compliance requirements
+
+## Tuần 9: Data Visualization & BI Tools
+
+### Open Source BI Tools
+- Apache Superset
+- Metabase
+- Redash
+- Grafana
+
+#### Bài tập
+1. **Superset Integration**
+   - Dashboard creation
+   - Chart types
+   - SQL Lab usage
+   - Security roles
+   - Path: `/week9/exercises/superset_integration.py`
+
+2. **Grafana Metrics**
+   - Data sources
+   - Panel creation
+   - Alert rules
+   - User management
+   - Path: `/week9/exercises/grafana_metrics.py`
+
+### Commercial BI Platforms
+- Tableau
+- Power BI
+- Looker
+- Sisense
+
+#### Bài tập
+1. **Tableau Connection**
+   - Data preparation
+   - Visual analytics
+   - Dashboard design
+   - Path: `/week9/exercises/tableau_connection.py`
+
+2. **Power BI Integration**
+   - Data modeling
+   - DAX formulas
+   - Report design
+   - Path: `/week9/exercises/powerbi_integration.py`
+
+### Real-time Visualization
+- Apache ECharts
+- D3.js
+- Plotly
+- Bokeh
+
+#### Bài tập
+1. **Real-time Charts**
+   - Streaming data
+   - Interactive features
+   - Animation effects
+   - Path: `/week9/exercises/realtime_charts.py`
+
+2. **Custom Visualizations**
+   - Chart components
+   - Event handling
+   - Data updates
+   - Path: `/week9/exercises/custom_viz.py`
+
+### Embedded Analytics
+- Embedded Superset
+- Tableau Embedded
+- Power BI Embedded
+- Custom Solutions
+
+#### Bài tập
+1. **Embed Integration**
+   - Framework setup
+   - Authentication
+   - Customization
+   - Path: `/week9/exercises/embed_integration.py`
+
+2. **Custom Dashboard**
+   - Layout design
+   - Component integration
+   - Interactivity
+   - Path: `/week9/exercises/custom_dashboard.py`
+
+### Mini Project: Analytics Platform
+- Multiple data sources
+- Custom visualizations
+- Real-time updates
+- User management
+- Path: `/week9/mini_project/analytics_platform.py`
+
+### Tool Selection Guide
+1. **Open Source BI**
+   - Use cases:
+     - Self-hosted analytics
+     - Custom integration
+     - Community support
+   - Options:
+     - Superset: Modern, scalable
+     - Metabase: User-friendly
+     - Redash: Query focused
+     - Grafana: Metrics & logs
+
+2. **Commercial BI**
+   - Use cases:
+     - Enterprise analytics
+     - Complex visualization
+     - Managed service
+   - Options:
+     - Tableau: Rich features
+     - Power BI: Microsoft integration
+     - Looker: Modern cloud BI
+     - Sisense: Embedded analytics
+
+3. **Real-time Tools**
+   - Use cases:
+     - Live monitoring
+     - Interactive dashboards
+     - Custom visualization
+   - Options:
+     - ECharts: Feature-rich
+     - D3.js: Flexible, powerful
+     - Plotly: Interactive plots
+     - Bokeh: Python native
+
+### Feature Comparison
+1. **Functionality**
+   - Data Handling:
+     - Commercial > Open Source > Real-time
+   - Visualization Types:
+     - Commercial > Real-time > Open Source
+   - Customization:
+     - Real-time > Open Source > Commercial
+
+2. **Implementation**
+   - Ease of Use:
+     - Commercial > Open Source > Real-time
+   - Learning Curve:
+     - Real-time > Open Source > Commercial
+   - Integration:
+     - Open Source > Real-time > Commercial
+
+3. **Cost & Support**
+   - Initial Cost:
+     - Commercial >>> Open Source > Real-time
+   - Maintenance:
+     - Commercial > Open Source > Real-time
+   - Support:
+     - Commercial > Open Source > Real-time
+
+### Best Practices
+1. **Dashboard Design**
+   - User experience
+   - Performance optimization
+   - Mobile responsiveness
+   - Accessibility
+
+2. **Data Architecture**
+   - Data modeling
+   - Query optimization
+   - Caching strategies
+   - Real-time updates
+
+3. **Security & Governance**
+   - Access control
+   - Data privacy
+   - Audit logging
+   - Compliance
+
+4. **Performance Optimization**
+   - Query tuning
+   - Data aggregation
+   - Caching layers
+   - Resource management
+
+## Tuần 10: Workflow Orchestration & Pipeline Management
+
+### Apache Airflow
+- Core Concepts
+- DAG Development
+- Operators & Sensors
+- Custom Components
+
+#### Bài tập
+1. **Airflow DAGs**
+   - DAG construction
+   - Task dependencies
+   - Scheduling
+   - Error handling
+   - Path: `/week10/exercises/airflow_dags.py`
+
+2. **Custom Operators**
+   - Operator development
+   - Hook integration
+   - Sensor creation
+   - Path: `/week10/exercises/custom_operators.py`
+
+### Prefect
+- Flow Development
+- Task Management
+- State Handling
+- Deployment Options
+
+#### Bài tập
+1. **Prefect Flows**
+   - Flow definition
+   - Task configuration
+   - State handlers
+   - Monitoring
+   - Path: `/week10/exercises/prefect_flows.py`
+
+2. **Advanced Features**
+   - Mapping
+   - Caching
+   - Notifications
+   - Path: `/week10/exercises/prefect_advanced.py`
+
+### Parallel Computing
+- NVIDIA DASK
+- PySpark
+- Ray
+- Modin
+
+#### Bài tập
+1. **DASK Operations**
+   - Distributed computing
+   - DataFrame operations
+   - Cluster management
+   - Path: `/week10/exercises/dask_ops.py`
+
+2. **Ray Processing**
+   - Task parallel
+   - Actor pattern
+   - Distributed training
+   - Path: `/week10/exercises/ray_processing.py`
+
+### Workflow Management
+- Luigi
+- Argo
+- Kubeflow
+- Dagster
+
+#### Bài tập
+1. **Luigi Tasks**
+   - Pipeline design
+   - Task dependencies
+   - Output targets
+   - Path: `/week10/exercises/luigi_tasks.py`
+
+2. **Kubeflow Pipelines**
+   - Component creation
+   - Pipeline assembly
+   - Kubernetes deployment
+   - Path: `/week10/exercises/kubeflow_pipelines.py`
+
+### Mini Project: ETL Orchestration System
+- Multiple workflow engines
+- Pipeline monitoring
+- Error recovery
+- Performance optimization
+- Path: `/week10/mini_project/etl_orchestration.py`
+
+### Tool Selection Guide
+1. **Traditional Orchestrators**
+   - Use cases:
+     - Complex workflows
+     - Scheduled jobs
+     - Dependencies management
+   - Options:
+     - Airflow: Mature, widely used
+     - Prefect: Modern, pythonic
+     - Luigi: Simple, lightweight
+     - Dagster: Data-aware
+
+2. **Cloud-Native Solutions**
+   - Use cases:
+     - Container orchestration
+     - Microservices
+     - Kubernetes integration
+   - Options:
+     - Argo: Kubernetes native
+     - Kubeflow: ML workflows
+     - AWS Step Functions
+     - Azure Data Factory
+
+3. **Parallel Computing**
+   - Use cases:
+     - Big data processing
+     - Scientific computing
+     - ML training
+   - Options:
+     - DASK: NumPy/Pandas parallel
+     - Ray: Distributed Python
+     - PySpark: Spark in Python
+     - Modin: Drop-in Pandas
+
+### Feature Comparison
+1. **Functionality**
+   - Scheduling:
+     - Airflow > Prefect > Luigi
+   - Monitoring:
+     - Prefect > Airflow > Kubeflow
+   - Scalability:
+     - DASK > Ray > PySpark
+
+2. **Implementation**
+   - Learning Curve:
+     - Luigi < Prefect < Airflow
+   - Development Speed:
+     - Prefect > Airflow > Kubeflow
+   - Flexibility:
+     - Ray > DASK > PySpark
+
+3. **Operations**
+   - Deployment:
+     - Argo > Airflow > Prefect
+   - Maintenance:
+     - Prefect < Airflow < Kubeflow
+   - Resource Usage:
+     - Luigi < Prefect < DASK
+
+### Best Practices
+1. **Architecture Design**
+   - Modularity
+   - Reusability
+   - Error handling
+   - Idempotency
+
+2. **Development**
+   - Testing strategies
+   - Version control
+   - Documentation
+   - Code review
+
+3. **Operations**
+   - Monitoring setup
+   - Alert configuration
+   - Resource management
+   - Backup strategies
+
+4. **Performance**
+   - Task granularity
+   - Parallel execution
+   - Resource allocation
+   - Caching strategies
+
+## Tuần 11: Modern Data Lake Formats & Architecture
+
+### Delta Lake
+- Transaction Support
+- ACID Properties
+- Time Travel
+- Schema Evolution
+
+#### Bài tập
+1. **Delta Operations**
+   - Table management
+   - Versioning
+   - Optimization
+   - Vacuum operations
+   - Path: `/week11/exercises/delta_ops.py`
+
+2. **Delta Features**
+   - Schema enforcement
+   - Merge operations
+   - Streaming support
+   - Path: `/week11/exercises/delta_features.py`
+
+### Apache Iceberg
+- Table Format
+- Schema Evolution
+- Partition Evolution
+- Time Travel
+
+#### Bài tập
+1. **Iceberg Tables**
+   - Table creation
+   - Data writing
+   - Query optimization
+   - Path: `/week11/exercises/iceberg_tables.py`
+
+2. **Iceberg Features**
+   - Snapshots
+   - Partition specs
+   - Maintenance
+   - Path: `/week11/exercises/iceberg_features.py`
+
+### Apache Hudi
+- Copy-on-Write Tables
+- Merge-on-Read Tables
+- Incremental Processing
+- Upsert Support
+
+#### Bài tập
+1. **Hudi Operations**
+   - Table types
+   - Write operations
+   - Incremental queries
+   - Path: `/week11/exercises/hudi_ops.py`
+
+2. **Hudi Features**
+   - Clustering
+   - Compaction
+   - Cleaning
+   - Path: `/week11/exercises/hudi_features.py`
+
+### Data Lake Architecture
+- Multi-Table Transactions
+- Data Quality
+- Performance Optimization
+- Governance
+
+#### Bài tập
+1. **Lake Architecture**
+   - Design patterns
+   - Integration
+   - Optimization
+   - Path: `/week11/exercises/lake_architecture.py`
+
+2. **Lake Management**
+   - Monitoring
+   - Maintenance
+   - Security
+   - Path: `/week11/exercises/lake_management.py`
+
+### Mini Project: Modern Data Lake Platform
+- Multiple format support
+- Data ingestion
+- Query optimization
+- Governance framework
+- Path: `/week11/mini_project/modern_lake.py`
+
+### Format Selection Guide
+1. **Delta Lake**
+   - Use cases:
+     - ACID transactions
+     - Real-time analytics
+     - Data quality enforcement
+   - Features:
+     - Strong consistency
+     - Schema enforcement
+     - Spark integration
+     - Azure integration
+
+2. **Apache Iceberg**
+   - Use cases:
+     - Large scale analytics
+     - Schema evolution
+     - Multi-engine support
+   - Features:
+     - Format specification
+     - Engine independence
+     - AWS integration
+     - Fine-grained partitioning
+
+3. **Apache Hudi**
+   - Use cases:
+     - Incremental processing
+     - Near real-time ingestion
+     - Upsert heavy workloads
+   - Features:
+     - Record-level updates
+     - Multiple table types
+     - Incremental queries
+     - AWS integration
+
+### Feature Comparison
+1. **Data Management**
+   - Transaction Support:
+     - Delta Lake > Iceberg > Hudi
+   - Schema Evolution:
+     - Iceberg > Delta Lake > Hudi
+   - Time Travel:
+     - Delta Lake = Iceberg > Hudi
+
+2. **Performance**
+   - Query Speed:
+     - Iceberg > Delta Lake > Hudi
+   - Write Performance:
+     - Hudi > Delta Lake > Iceberg
+   - Storage Efficiency:
+     - Hudi > Iceberg > Delta Lake
+
+3. **Integration**
+   - Engine Support:
+     - Iceberg > Hudi > Delta Lake
+   - Cloud Integration:
+     - Delta Lake > Hudi > Iceberg
+   - Tool Ecosystem:
+     - Delta Lake > Iceberg > Hudi
+
+### Architecture Patterns
+1. **Bronze-Silver-Gold**
+   - Bronze: Raw data
+   - Silver: Cleaned data
+   - Gold: Business views
+
+2. **Data Quality Layers**
+   - Ingestion validation
+   - Processing validation
+   - Business validation
+
+3. **Access Patterns**
+   - Batch processing
+   - Streaming updates
+   - Interactive queries
+
+4. **Optimization Strategies**
+   - File size optimization
+   - Partition optimization
+   - Compaction policies
+   - Caching strategies
+
+### Best Practices
+1. **Design Considerations**
+   - Schema design
+   - Partition strategy
+   - File format selection
+   - Security model
+
+2. **Operational Excellence**
+   - Monitoring setup
+   - Backup procedures
+   - Disaster recovery
+   - Performance tuning
+
+3. **Governance & Compliance**
+   - Data cataloging
+   - Access control
+   - Audit logging
+   - Retention policies
+
+## Tuần 12: Data Optimization & Advanced Storage
+
+### Data Encryption & Security
+- Encryption at Rest
+- Encryption in Transit
+- Key Management
+- Access Control
+
+#### Bài tập
+1. **Data Encryption**
+   - Symmetric encryption
+   - Asymmetric encryption
+   - Key rotation
+   - Secure storage
+   - Path: `/week12/exercises/data_encryption.py`
+
+2. **Security Management**
+   - Access policies
+   - Audit logging
+   - Compliance checks
+   - Path: `/week12/exercises/security_mgmt.py`
+
+### Query Optimization
+- Index Strategies
+- Partitioning
+- Query Planning
+- Caching Mechanisms
+
+#### Bài tập
+1. **Index Optimization**
+   - B-tree indexes
+   - Bitmap indexes
+   - Hash indexes
+   - Custom indexes
+   - Path: `/week12/exercises/index_optimization.py`
+
+2. **Query Performance**
+   - Query plans
+   - Statistics collection
+   - Plan caching
+   - Path: `/week12/exercises/query_performance.py`
+
+### Advanced Storage Patterns
+- Columnar Storage
+- Vector Storage
+- Time-series Optimization
+- Multi-modal Data
+
+#### Bài tập
+1. **Storage Formats**
+   - Parquet optimization
+   - Vector indexing
+   - Compression strategies
+   - Path: `/week12/exercises/storage_formats.py`
+
+2. **Specialized Storage**
+   - Image storage (DeepLake)
+   - Time-series optimization
+   - Graph data storage
+   - Path: `/week12/exercises/specialized_storage.py`
+
+### Feature-based Optimization
+- Feature Stores
+- Materialized Views
+- Pre-aggregation
+- Dynamic Filtering
+
+#### Bài tập
+1. **Feature Engineering**
+   - Feature extraction
+   - Feature storage
+   - Online serving
+   - Path: `/week12/exercises/feature_engineering.py`
+
+2. **Query Acceleration**
+   - View materialization
+   - Aggregation tables
+   - Dynamic filters
+   - Path: `/week12/exercises/query_acceleration.py`
+
+### Mini Project: Optimized Data Platform
+- Multi-modal storage
+- Advanced indexing
+- Query optimization
+- Security implementation
+- Path: `/week12/mini_project/optimized_platform.py`
+
+### Optimization Techniques Guide
+1. **Data Encryption**
+   - Approaches:
+     - Transparent Data Encryption (TDE)
+     - Application-Level Encryption
+     - Column-Level Encryption
+   - Key Management:
+     - HSM Integration
+     - Key Rotation
+     - Access Control
+
+2. **Index Optimization**
+   - Types:
+     - B-tree: General purpose
+     - Bitmap: Low cardinality
+     - Hash: Exact match
+     - GiST: Geometric/Custom
+   - Strategies:
+     - Covering indexes
+     - Partial indexes
+     - Expression indexes
+
+3. **Storage Optimization**
+   - Formats:
+     - Row-oriented: OLTP
+     - Column-oriented: OLAP
+     - Hybrid: Mixed workload
+   - Specialized:
+     - Vector: Similarity search
+     - Graph: Relationship data
+     - Time-series: Sequential data
+
+4. **Feature-based**
+   - Feature Store:
+     - Online/Offline serving
+     - Version control
+     - Monitoring
+   - Query Optimization:
+     - Materialized views
+     - Dynamic filtering
+     - Adaptive execution
+
+### Implementation Patterns
+1. **Data Encryption**
+   ```python
+   # Example encryption strategy
+   class DataEncryption:
+       def encrypt_column(self, data, key):
+           # Column-level encryption
+           pass
+       
+       def rotate_keys(self, old_key, new_key):
+           # Key rotation logic
+           pass
+   ```
+
+2. **Index Management**
+   ```python
+   # Custom index implementation
+   class CustomIndex:
+       def build_index(self, data):
+           # Index construction
+           pass
+       
+       def query_index(self, condition):
+           # Fast lookup
+           pass
+   ```
+
+3. **Storage Optimization**
+   ```python
+   # Specialized storage handler
+   class ImageStorage:
+       def store_image(self, image_data):
+           # Efficient image storage
+           pass
+       
+       def retrieve_image(self, image_id):
+           # Fast image retrieval
+           pass
+   ```
+
+### Best Practices
+1. **Performance Optimization**
+   - Monitoring:
+     - Query performance
+     - Resource usage
+     - Cache hit rates
+   - Tuning:
+     - Index selection
+     - Partition strategy
+     - Cache configuration
+
+2. **Security Implementation**
+   - Encryption:
+     - Key management
+     - Algorithm selection
+     - Performance impact
+   - Access Control:
+     - Role-based access
+     - Row-level security
+     - Column-level security
+
+3. **Storage Management**
+   - Data Layout:
+     - Partition design
+     - Compression selection
+     - File format choice
+   - Optimization:
+     - Auto-vacuum
+     - Statistics update
+     - Index maintenance
+
+4. **Query Optimization**
+   - Analysis:
+     - Query patterns
+     - Data distribution
+     - Access patterns
+   - Implementation:
+     - Index creation
+     - View materialization
+     - Partition pruning
+
+## Final Projects
+
+### Basic Data Engineering Project Options
+
+1. **ETL Pipeline System**
+   - Requirements:
+     - Extract data từ multiple sources (APIs, databases, files)
+     - Transform data với validation và cleaning
+     - Load vào data warehouse
+     - Basic monitoring và error handling
+   - Tech Stack:
+     - Python
+     - SQL Database (PostgreSQL/MySQL)
+     - Basic ETL tools (pandas, SQLAlchemy)
+     - Simple scheduling (cron/scheduler)
+   - Deliverables:
+     - Source code
+     - Documentation
+     - Test cases
+     - Demo video
+
+2. **Data Quality System**
+   - Requirements:
+     - Data validation rules
+     - Quality checks và reporting
+     - Alert system
+     - Basic dashboard
+   - Tech Stack:
+     - Python
+     - SQL Database
+     - Basic visualization (matplotlib/seaborn)
+     - Email notifications
+   - Deliverables:
+     - Validation framework
+     - Quality reports
+     - Alert system
+     - Documentation
+
+3. **Simple Analytics Platform**
+   - Requirements:
+     - Data ingestion
+     - Basic analytics
+     - Report generation
+     - Simple visualizations
+   - Tech Stack:
+     - Python
+     - SQL Database
+     - Basic BI tools
+     - Web framework (Flask/FastAPI)
+   - Deliverables:
+     - Analytics system
+     - Reports
+     - Basic dashboard
+     - Documentation
+
+### Advanced Data Engineering Project Options
+
+1. **Real-time Data Platform**
+   - Requirements:
+     - Streaming data ingestion
+     - Real-time processing
+     - Multiple storage layers
+     - Advanced monitoring
+     - Security implementation
+   - Tech Stack:
+     - Apache Kafka
+     - Apache Spark
+     - Delta Lake/Iceberg
+     - Elasticsearch
+     - Grafana
+   - Advanced Features:
+     - Schema evolution
+     - Data versioning
+     - ACID compliance
+     - Security & encryption
+   - Deliverables:
+     - Platform architecture
+     - Implementation code
+     - Performance metrics
+     - Documentation
+     - Deployment guide
+
+2. **ML Feature Platform**
+   - Requirements:
+     - Feature engineering pipeline
+     - Feature store
+     - Online/offline serving
+     - Version control
+     - Monitoring system
+   - Tech Stack:
+     - Feature store (Feast/Hopsworks)
+     - Apache Airflow
+     - Redis/MongoDB
+     - PostgreSQL
+     - MLflow
+   - Advanced Features:
+     - Feature computation
+     - Point-in-time correctness
+     - Feature sharing
+     - Access control
+   - Deliverables:
+     - Feature platform
+     - API documentation
+     - Performance analysis
+     - Usage examples
+     - Monitoring setup
+
+3. **Data Lake System**
+   - Requirements:
+     - Multi-format data ingestion
+     - Data catalog
+     - Query engine
+     - Governance framework
+     - Security implementation
+   - Tech Stack:
+     - Apache Spark
+     - Delta Lake/Hudi
+     - Apache Atlas
+     - Trino/Presto
+     - Ranger/Knox
+   - Advanced Features:
+     - ACID transactions
+     - Time travel
+     - Column encryption
+     - Access control
+   - Deliverables:
+     - System architecture
+     - Implementation code
+     - Governance framework
+     - Security setup
+     - Documentation
+
+### Evaluation Criteria
+
+#### Basic Projects (100 points)
+1. **Functionality (40 points)**
+   - Core features implementation
+   - Error handling
+   - Data accuracy
+   - Performance
+
+2. **Code Quality (30 points)**
+   - Clean code
+   - Documentation
+   - Testing
+   - Best practices
+
+3. **Project Structure (20 points)**
+   - Organization
+   - Modularity
+   - Configuration
+   - Deployment
+
+4. **Documentation (10 points)**
+   - Setup guide
+   - API documentation
+   - Usage examples
+   - Architecture diagram
+
+#### Advanced Projects (100 points)
+1. **Architecture (30 points)**
+   - System design
+   - Scalability
+   - Reliability
+   - Integration
+
+2. **Implementation (30 points)**
+   - Feature completeness
+   - Code quality
+   - Performance
+   - Security
+
+3. **Operations (20 points)**
+   - Monitoring
+   - Error handling
+   - Recovery
+   - Maintenance
+
+4. **Documentation (20 points)**
+   - Technical documentation
+   - API specifications
+   - Deployment guide
+   - Performance analysis
+
+
+### Timeline
+1. **Basic Projects**
+   - Week 1-2: Design & Setup
+   - Week 3-4: Implementation
+   - Week 5: Testing & Documentation
+   - Week 6: Presentation
+
+2. **Advanced Projects**
+   - Week 1-2: Architecture & Design
+   - Week 3-4: Core Implementation
+   - Week 5-6: Advanced Features
+   - Week 7: Testing & Documentation
+   - Week 8: Presentation
+
+### Submission Requirements
+1. **Source Code**
+   - GitHub repository
+   - Clean commit history
+   - README documentation
+   - Setup instructions
+
+2. **Documentation**
+   - System architecture
+   - API documentation
+   - User guide
+   - Performance analysis
+
+3. **Presentation**
+   - System demo
+   - Architecture overview
+   - Technical decisions
+   - Lessons learned
+
+4. **Optional**
+   - Blog post
+   - Video demo
+   - Performance benchmarks
+   - Advanced features
