@@ -328,7 +328,7 @@
    - Security configuration
    - Path: `/week6/exercises/minio_client.py`
 
-### Storage Features
+### Storage Features **<-- here**
 - Data Compression
 - Deduplication
 - Encryption
