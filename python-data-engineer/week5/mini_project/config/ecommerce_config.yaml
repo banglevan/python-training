@@ -1,0 +1,65 @@
+# E-commerce System Configuration
+# -----------------------------
+
+# MongoDB Configuration
+mongo:
+  host: localhost
+  port: 27017
+  database: ecommerce
+  options:
+    max_pool_size: 50
+    connect_timeout_ms: 5000
+    retry_writes: true
+    w: majority
+
+# Redis Configuration
+redis:
+  host: localhost
+  port: 6379
+  db: 0
+  options:
+    socket_timeout: 5
+    decode_responses: true
+    max_connections: 100
+    retry_on_timeout: true
+
+# TimescaleDB Configuration
+timescale:
+  host: localhost
+  port: 5432
+  database: ecommerce
+  user: postgres
+  password: ""
+  options:
+    min_connections: 5
+    max_connections: 20
+    application_name: ecommerce_analytics
+
+# Neo4j Configuration
+neo4j:
+  uri: bolt://localhost:7687
+  user: neo4j
+  password: ""
+  options:
+    max_connection_lifetime: 3600
+    max_connection_pool_size: 50
+    connection_timeout: 30
+
+# System Settings
+system:
+  thread_pool:
+    max_workers: 4
+    thread_name_prefix: ecommerce
+  
+  cache:
+    product_ttl: 3600  # 1 hour
+    session_ttl: 7200  # 2 hours
+    cart_ttl: 86400   # 24 hours
+  
+  batch:
+    max_batch_size: 1000
+    flush_interval: 60  # seconds
+  
+  monitoring:
+    health_check_interval: 300  # 5 minutes
+    metrics_retention: 604800   # 7 days 
