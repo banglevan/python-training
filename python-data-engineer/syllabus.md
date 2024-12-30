@@ -348,11 +348,15 @@
    - Path: `/week6/exercises/data_security.py`
 
 ### Mini Project: Hybrid Storage System
+- Focus on a specified application
+- Split to multiple files, that like a real system
 - Multiple storage integration
 - Automatic tiering
 - Data lifecycle management
+- Backing up, including backup pattern, schedule, rule, etc
 - Performance monitoring
-- Path: `/week6/mini_project/hybrid_storage.py`
+- Readme, requirements are needed
+- Path: `/week6/mini_project`
 
 ### Storage Selection Guide
 1. **Traditional File Systems**
