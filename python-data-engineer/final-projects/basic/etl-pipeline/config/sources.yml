@@ -1,0 +1,36 @@
+apis:
+  weather:
+    url: "https://api.openweathermap.org/data/2.5"
+    key: "${WEATHER_API_KEY}"
+  stocks:
+    url: "https://www.alphavantage.co/query"
+    key: "${ALPHA_VANTAGE_KEY}"
+
+databases:
+  mysql:
+    host: "localhost"
+    port: 3306
+    database: "customers"
+    user: "root"
+    password: "${MYSQL_PASSWORD}"
+  
+  postgres:
+    host: "localhost"
+    port: 5432
+    database: "transactions"
+    user: "postgres"
+    password: "${POSTGRES_PASSWORD}"
+
+warehouse:
+  type: "postgresql"
+  host: "localhost"
+  port: 5432
+  database: "warehouse"
+  user: "warehouse_user"
+  password: "${WAREHOUSE_PASSWORD}"
+
+files:
+  paths:
+    products: "data/products/*.csv"
+    preferences: "data/preferences/*.json"
+    sales: "data/sales/*.xlsx" 

@@ -1,0 +1,31 @@
+default_args:
+  owner: ml_platform
+  retries: 1
+  retry_delay: 300
+  email: ['alerts@example.com']
+  
+schedule_interval: '0 */4 * * *'  # Every 4 hours
+
+connections:
+  postgres:
+    host: localhost
+    port: 5432
+    database: feature_store
+    user: ${POSTGRES_USER}
+    password: ${POSTGRES_PASSWORD}
+    
+  redis:
+    host: localhost
+    port: 6379
+    db: 0
+    
+feature_views:
+  customer_features:
+    batch_size: 1000
+    validation_threshold: 0.1
+    ttl_days: 1
+    
+  product_features:
+    batch_size: 1000
+    validation_threshold: 0.1
+    ttl_days: 1 

@@ -1,0 +1,23 @@
+# Atlas configuration
+atlas:
+  host: localhost
+  port: 21000
+  username: admin
+  password: ${ATLAS_PASSWORD}
+  
+  # Type definitions
+  types:
+    - name: delta_table
+      description: Delta Lake table
+      superTypes:
+        - Asset
+      attributeDefs:
+        - name: name
+          typeName: string
+          isOptional: false
+        - name: location
+          typeName: string
+          isOptional: false
+        - name: format
+          typeName: string
+          defaultValue: delta 

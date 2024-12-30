@@ -1,0 +1,19 @@
+# Ranger configuration
+ranger:
+  url: http://localhost:6080
+  username: admin
+  password: ${RANGER_PASSWORD}
+  
+  # Service definitions
+  services:
+    - name: delta_lake
+      type: delta
+      configs:
+        username: ${DELTA_USER}
+        password: ${DELTA_PASSWORD}
+        
+    - name: trino
+      type: trino
+      configs:
+        username: ${TRINO_USER}
+        password: ${TRINO_PASSWORD} 

@@ -1,0 +1,12 @@
+jobs:
+  customer_data:
+    schedule: "0 0 * * *"  # Daily at midnight
+    retry:
+      attempts: 3
+      delay: 300  # 5 minutes
+  
+  transaction_data:
+    schedule: "0 * * * *"  # Every hour
+    retry:
+      attempts: 3
+      delay: 60  # 1 minute 

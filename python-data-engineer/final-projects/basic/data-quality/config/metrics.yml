@@ -1,0 +1,14 @@
+weights:
+  completeness: 0.3
+  uniqueness: 0.2
+  format: 0.3
+  range: 0.2
+
+thresholds:
+  critical: 0.8
+  warning: 0.9
+  info: 0.95
+
+history:
+  retention_days: 30
+  aggregation: "daily" 

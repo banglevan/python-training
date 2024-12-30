@@ -1,0 +1,20 @@
+customers:
+  - field: "email"
+    type: "email"
+    required: true
+  - field: "phone"
+    pattern: "^\+?[1-9]\d{1,14}$"
+  - field: "first_name"
+    required: true
+  - field: "last_name"
+    required: true
+
+transactions:
+  - field: "amount"
+    type: "decimal"
+    min: 0
+  - field: "transaction_date"
+    type: "date"
+    range: ["2020-01-01", "now"]
+  - field: "status"
+    values: ["COMPLETED", "PENDING", "FAILED"] 

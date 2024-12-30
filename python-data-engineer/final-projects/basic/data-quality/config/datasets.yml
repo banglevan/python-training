@@ -1,0 +1,58 @@
+customers:
+  source:
+    connection_string: "postgresql://user:pass@localhost:5432/warehouse"
+    query: "SELECT * FROM customers"
+  schema:
+    customer_id:
+      type: "string"
+      required: true
+    email:
+      type: "string"
+      required: true
+    phone:
+      type: "string"
+      required: false
+    created_at:
+      type: "date"
+      required: true
+  checks:
+    - type: "completeness"
+      columns: ["email", "phone"]
+      threshold: 0.95
+    - type: "uniqueness"
+      columns: ["email"]
+      threshold: 1.0
+    - type: "format"
+      column: "email"
+      pattern: "^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\\.[a-zA-Z]{2,}$"
+
+orders:
+  source:
+    connection_string: "postgresql://user:pass@localhost:5432/warehouse"
+    query: "SELECT * FROM orders"
+  schema:
+    order_id:
+      type: "string"
+      required: true
+    customer_id:
+      type: "string"
+      required: true
+    amount:
+      type: "float"
+      required: true
+    status:
+      type: "string"
+      required: true
+    created_at:
+      type: "date"
+      required: true
+  checks:
+    - type: "completeness"
+      columns: ["customer_id", "amount", "status"]
+      threshold: 1.0
+    - type: "range"
+      column: "amount"
+      min_value: 0
+    - type: "format"
+      column: "status"
+      pattern: "^(PENDING|COMPLETED|CANCELLED)$" 

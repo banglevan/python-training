@@ -1,0 +1,37 @@
+sales:
+  daily:
+    - name: total_revenue
+      type: sum
+      column: total_amount
+    - name: transaction_count
+      type: count
+      column: sale_id
+    - name: avg_transaction_value
+      type: mean
+      column: total_amount
+  
+  weekly:
+    - name: revenue_growth
+      type: growth
+      metric: total_revenue
+    - name: customer_retention
+      type: retention
+      column: customer_id
+
+customers:
+  segments:
+    - name: new
+      condition: "days_since_first_purchase <= 30"
+    - name: active
+      condition: "days_since_last_purchase <= 90"
+    - name: at_risk
+      condition: "days_since_last_purchase > 90"
+    - name: lost
+      condition: "days_since_last_purchase > 180"
+
+products:
+  categories:
+    - name: top_sellers
+      condition: "revenue_rank <= 10"
+    - name: low_performers
+      condition: "revenue_rank > 100" 

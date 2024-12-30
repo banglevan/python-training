@@ -1,0 +1,16 @@
+# Spark configuration
+spark:
+  app_name: data_lake_system
+  master: yarn
+  executor:
+    instances: 4
+    cores: 4
+    memory: 8g
+  driver:
+    memory: 4g
+  
+  # Additional settings
+  conf:
+    spark.sql.extensions: io.delta.sql.DeltaSparkSessionExtension
+    spark.sql.catalog.spark_catalog: org.apache.spark.sql.delta.catalog.DeltaCatalog
+    spark.databricks.delta.retentionDurationCheck.enabled: false 

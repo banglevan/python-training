@@ -1,0 +1,28 @@
+smtp:
+  host: "smtp.company.com"
+  port: 587
+  username: "${SMTP_USERNAME}"
+  password: "${SMTP_PASSWORD}"
+  from_email: "alerts@company.com"
+  use_tls: true
+
+levels:
+  critical:
+    threshold: 0.8
+    notify:
+      - "admin@company.com"
+      - "manager@company.com"
+  warning:
+    threshold: 0.9
+    notify:
+      - "team@company.com"
+  info:
+    threshold: 0.95
+    notify:
+      - "analyst@company.com"
+
+digest:
+  schedule: "0 0 * * *"  # Daily at midnight
+  notify:
+    - "team@company.com"
+    - "manager@company.com" 

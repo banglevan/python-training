@@ -1550,6 +1550,7 @@
      - Documentation
      - Test cases
      - Demo video
+   - Project locate on `python-data-engineer/final-projects/basic/etl-pipeline`
 
 2. **Data Quality System**
    - Requirements:
@@ -1567,6 +1568,7 @@
      - Quality reports
      - Alert system
      - Documentation
+   - Project locate on `python-data-engineer/final-projects/basic/data-quality`
 
 3. **Simple Analytics Platform**
    - Requirements:
@@ -1584,10 +1586,12 @@
      - Reports
      - Basic dashboard
      - Documentation
+   - Project locate on `python-data-engineer/final-projects/basic/simple-analytics`
 
 ### Advanced Data Engineering Project Options
 
 1. **Real-time Data Platform**
+   - focus on a application sample, desc the solution, metrics, targets on readme, and pls make sure follow the solution on readme to create the script and related files, closely
    - Requirements:
      - Streaming data ingestion
      - Real-time processing
@@ -1611,8 +1615,10 @@
      - Performance metrics
      - Documentation
      - Deployment guide
+   - Project locate on `python-data-engineer/final-projects/advanced/realtime-data-platform`
 
 2. **ML Feature Platform**
+   - focus on a application sample, desc the solution, metrics, targets on readme, and pls make sure follow the solution on readme to create the script and related files, closely
    - Requirements:
      - Feature engineering pipeline
      - Feature store
@@ -1636,8 +1642,10 @@
      - Performance analysis
      - Usage examples
      - Monitoring setup
+   - Project locate on `python-data-engineer/final-projects/advanced/ml-feature-platform`
 
 3. **Data Lake System**
+   - focus on a application sample, desc the solution, metrics, targets on readme, and pls make sure follow the solution on readme to create the script and related files, closely
    - Requirements:
      - Multi-format data ingestion
      - Data catalog
@@ -1661,6 +1669,7 @@
      - Governance framework
      - Security setup
      - Documentation
+   - Project locate on `python-data-engineer/final-projects/advanced/data-lake-system`
 
 ### Evaluation Criteria
 

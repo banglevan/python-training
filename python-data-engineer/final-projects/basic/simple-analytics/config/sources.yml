@@ -1,0 +1,30 @@
+warehouse:
+  driver: postgresql
+  host: localhost
+  port: 5432
+  database: analytics
+  username: "${DB_USERNAME}"
+  password: "${DB_PASSWORD}"
+
+sources:
+  sales:
+    type: database
+    connection:
+      driver: postgresql
+      host: localhost
+      port: 5432
+      database: sales
+      username: "${SALES_DB_USER}"
+      password: "${SALES_DB_PASS}"
+    query: "SELECT * FROM sales WHERE date >= :start_date"
+  
+  customers:
+    type: csv
+    path: "data/customers.csv"
+    delimiter: ","
+    encoding: "utf-8"
+  
+  products:
+    type: excel
+    path: "data/products.xlsx"
+    sheet: "Products" 

@@ -1,0 +1,13 @@
+# Elasticsearch Configuration
+cluster.name: "data-platform-cluster"
+node.name: "data-node-1"
+network.host: 0.0.0.0
+http.port: 9200
+discovery.type: single-node
+xpack.security.enabled: false
+indices.memory.index_buffer_size: 30%
+bootstrap.memory_lock: true
+path.data: /var/lib/elasticsearch/data
+path.logs: /var/lib/elasticsearch/logs
+thread_pool.write.queue_size: 1000
+thread_pool.search.queue_size: 1000 
