@@ -1,0 +1,91 @@
+# Storage Configuration
+storage:
+  # Local Storage Settings
+  local:
+    base_path: /data/local
+    max_size: 1TB
+    reserved_space: 10GB
+
+  # S3 Storage Settings
+  s3:
+    endpoint: https://s3.amazonaws.com
+    access_key: your_access_key
+    secret_key: your_secret_key
+    region: us-east-1
+    bucket: your-bucket
+    
+  # HDFS Settings
+  hdfs:
+    namenode: localhost
+    port: 9000
+    user: hdfs
+    
+  # Ceph Settings
+  ceph:
+    monitors:
+      - 192.168.1.10:6789
+      - 192.168.1.11:6789
+    pool: data
+    user: admin
+    key: your-key
+
+# Tiering Configuration
+tiering:
+  policies:
+    hot:
+      storage: local
+      max_age: 7d
+      min_access: 10
+    warm:
+      storage: s3
+      max_age: 30d
+      min_access: 5
+    cold:
+      storage: hdfs
+      max_age: 90d
+      min_access: 1
+    archive:
+      storage: ceph
+      max_age: 365d
+      min_access: 0
+
+# Backup Configuration
+backup:
+  strategies:
+    full:
+      schedule: "0 0 * * 0"  # Weekly
+      retention: 4
+      destination: s3
+    incremental:
+      schedule: "0 0 * * 1-6"  # Daily except Sunday
+      retention: 7
+      destination: hdfs
+    snapshot:
+      schedule: "0 */6 * * *"  # Every 6 hours
+      retention: 24
+      destination: local
+
+# Monitoring Configuration
+monitoring:
+  metrics:
+    collection_interval: 60
+    retention_days: 30
+    prometheus_port: 9090
+  
+  alerts:
+    storage_usage_threshold: 85
+    iops_threshold: 1000
+    latency_threshold: 100
+    
+  logging:
+    level: INFO
+    file: /var/log/hybrid_storage.log
+    max_size: 100MB
+    backup_count: 10
+
+# Database Configuration
+database:
+  url: mysql+pymysql://user:pass@localhost/hybrid_storage
+  pool_size: 10
+  max_overflow: 20
+  echo: false 

@@ -1,0 +1,37 @@
+# Core dependencies
+boto3>=1.26.0
+hdfs>=2.7.0
+python-snappy>=0.6.1
+minio>=7.1.0
+apache-libcloud>=3.7.0
+
+# Storage utilities
+python-magic>=0.4.27
+filetype>=1.2.0
+zstandard>=0.19.0
+lz4>=4.3.2
+
+# Monitoring and metrics
+prometheus-client>=0.16.0
+psutil>=5.9.0
+py-cpuinfo>=9.0.0
+
+# Scheduling and async
+apscheduler>=3.10.1
+aiohttp>=3.8.4
+asyncio>=3.4.3
+
+# Database
+sqlalchemy>=2.0.0
+alembic>=1.11.1
+pymysql>=1.0.3
+
+# Testing
+pytest>=7.3.1
+pytest-asyncio>=0.21.0
+pytest-cov>=4.1.0
+
+# Utilities
+pyyaml>=6.0.1
+python-dateutil>=2.8.2
+tenacity>=8.2.2 
