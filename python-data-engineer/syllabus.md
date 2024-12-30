@@ -667,20 +667,28 @@
    - Multi-source sync
    - Conflict resolution
    - Recovery strategies
+   - Focus on an real product example
+   - Desc the solution also
    - Path: `/week8/exercises/data_sync.py`
 
 2. **Event Store**
    - Event capturing
    - State reconstruction
    - Event replay
+   - Focus on an real product example
+   - Desc the solution also
    - Path: `/week8/exercises/event_store.py`
 
 ### Mini Project: Real-time Data Sync System
+- Focus on a real production sample
+- Add readme, requirements
+- Describe database structure and interactions on readme
+- Split to modules
 - Multiple source CDC
 - Data transformation
 - Conflict handling
 - Monitoring & alerts
-- Path: `/week8/mini_project/realtime_sync.py`
+- Path: `/week8/mini_project/`
 
 ### CDC Tool Selection Guide
 1. **Log-based CDC**

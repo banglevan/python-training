@@ -1,0 +1,106 @@
+# Application configuration
+connectors:
+  shopify_store:
+    type: shopify
+    name: main-store
+    shop_url: https://your-store.myshopify.com
+    access_token: your_access_token
+    webhook_secret: your_webhook_secret
+  
+  woo_store:
+    type: woocommerce
+    name: woo-store
+    site_url: https://your-woostore.com
+    consumer_key: your_consumer_key
+    consumer_secret: your_consumer_secret
+  
+  erp_system:
+    type: erp
+    name: erp-system
+    database:
+      host: localhost
+      port: 5432
+      user: erp_user
+      password: erp_password
+      dbname: erp_db
+
+kafka:
+  bootstrap_servers: localhost:9092
+  topics:
+    - name: product_updates
+      partitions: 3
+      replication: 1
+    - name: order_updates
+      partitions: 3
+      replication: 1
+
+flink:
+  job_name: data-sync-job
+  checkpoint_interval: 10000
+  parallelism: 2
+  tables:
+    - name: product_source
+      type: source
+      topic: product_updates
+      schema:
+        id: string
+        data: string
+        timestamp: timestamp
+    - name: product_sink
+      type: sink
+      topic: product_processed
+      schema:
+        id: string
+        data: string
+        processed_at: timestamp
+
+cache:
+  host: localhost
+  port: 6379
+  db: 0
+  default_ttl: 3600
+
+sync:
+  database:
+    host: localhost
+    port: 5432
+    user: sync_user
+    password: sync_password
+    dbname: sync_db
+  max_workers: 5
+  batch_size: 100
+  processes:
+    - source: shopify_store
+      targets: [woo_store, erp_system]
+      entity_type: product
+    - source: woo_store
+      targets: [shopify_store, erp_system]
+      entity_type: order
+
+monitoring:
+  metrics:
+    database:
+      host: localhost
+      port: 5432
+      user: metrics_user
+      password: metrics_password
+      dbname: metrics_db
+    server:
+      enabled: true
+      port: 8000
+    pushgateway:
+      url: http://localhost:9091
+  
+  alerts:
+    default_severity: warning
+    email:
+      host: smtp.gmail.com
+      port: 587
+      from: alerts@yourdomain.com
+      to: [admin@yourdomain.com]
+      username: your_username
+      password: your_password
+    slack:
+      webhook_url: https://hooks.slack.com/services/your/webhook/url
+
+health_check_interval: 60 
