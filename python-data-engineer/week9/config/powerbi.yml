@@ -1,0 +1,8 @@
+powerbi:
+  tenant_id: "your-tenant-id"
+  client_id: "your-client-id"
+  client_secret: "your-client-secret"
+  workspace_id: "your-workspace-id"
+
+database:
+  connection_string: "postgresql://user:password@localhost:5432/sync_metrics" 

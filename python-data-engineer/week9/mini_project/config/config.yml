@@ -1,0 +1,46 @@
+# API Configuration
+api:
+  host: "0.0.0.0"
+  port: 8000
+
+# Database Configuration
+database:
+  postgres:
+    host: "localhost"
+    port: 5432
+    user: "analytics_user"
+    password: "analytics_pass"
+    dbname: "analytics_db"
+  
+  mongodb:
+    host: "localhost"
+    port: 27017
+    user: "mongo_user"
+    password: "mongo_pass"
+    dbname: "analytics"
+  
+  redis:
+    host: "localhost"
+    port: 6379
+    db: 0
+
+# Security Configuration
+security:
+  secret_key: "your-secret-key-here"
+  algorithm: "HS256"
+  access_token_expire_minutes: 30
+
+# Kafka Configuration
+kafka:
+  bootstrap_servers: "localhost:9092"
+  consumer_group: "analytics_group"
+
+# Cache Configuration
+cache:
+  default_ttl: 3600  # 1 hour
+  max_size: "1GB"
+
+# Logging Configuration
+logging:
+  level: "INFO"
+  format: "%(asctime)s - %(name)s - %(levelname)s - %(message)s" 

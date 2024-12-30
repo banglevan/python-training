@@ -1,0 +1,9 @@
+tableau:
+  server_url: "https://your-tableau-server"
+  site_id: "your-site"
+  username: "your-username"
+  password: "your-password"
+  project_name: "Data Sync"
+
+database:
+  connection_string: "postgresql://user:password@localhost:5432/sync_metrics" 

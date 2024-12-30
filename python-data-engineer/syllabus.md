@@ -861,6 +861,9 @@
    - Path: `/week9/exercises/custom_dashboard.py`
 
 ### Mini Project: Analytics Platform
+- Focus on a real production sample
+- Add readme, requirements
+- Describe database structure and interactions on readme
 - Multiple data sources
 - Custom visualizations
 - Real-time updates
@@ -1032,6 +1035,9 @@
    - Path: `/week10/exercises/kubeflow_pipelines.py`
 
 ### Mini Project: ETL Orchestration System
+- Focus on a real production sample
+- Add readme, requirements
+- Describe database structure and interactions on readme
 - Multiple workflow engines
 - Pipeline monitoring
 - Error recovery
@@ -1202,6 +1208,9 @@
    - Path: `/week11/exercises/lake_management.py`
 
 ### Mini Project: Modern Data Lake Platform
+- Focus on a real production sample
+- Add readme, requirements
+- Describe database structure and interactions on readme
 - Multiple format support
 - Data ingestion
 - Query optimization
@@ -1389,6 +1398,9 @@
    - Path: `/week12/exercises/query_acceleration.py`
 
 ### Mini Project: Optimized Data Platform
+- Focus on a real production sample
+- Add readme, requirements
+- Describe database structure and interactions on readme
 - Multi-modal storage
 - Advanced indexing
 - Query optimization

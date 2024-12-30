@@ -1,0 +1,7 @@
+superset:
+  base_url: "http://localhost:8088"
+  username: "admin"
+  password: "admin"
+
+database:
+  sqlalchemy_uri: "postgresql://user:password@localhost:5432/sync_metrics" 
