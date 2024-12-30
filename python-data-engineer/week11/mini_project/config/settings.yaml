@@ -1,0 +1,37 @@
+# Data Lake Configuration
+
+storage:
+  raw_path: "data/raw"
+  processed_path: "data/processed"
+  curated_path: "data/curated"
+  audit_path: "data/audit"
+
+spark:
+  app_name: "ImageDataLake"
+  master: "local[*]"
+  packages:
+    - "io.delta:delta-core_2.12:2.4.0"
+    - "org.apache.hadoop:hadoop-aws:3.3.4"
+  
+processing:
+  batch_size: 1000
+  max_retries: 3
+  image:
+    formats:
+      - "jpg"
+      - "jpeg"
+      - "png"
+    resize:
+      width: 800
+      height: 600
+  
+optimization:
+  vacuum_retention_hours: 168  # 7 days
+  z_order_columns:
+    - "id"
+    - "created_at"
+  
+governance:
+  schema_evolution: "additive"
+  retention_days: 730  # 2 years
+  audit_enabled: true 

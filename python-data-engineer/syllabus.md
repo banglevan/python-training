@@ -1208,14 +1208,14 @@
    - Path: `/week11/exercises/lake_management.py`
 
 ### Mini Project: Modern Data Lake Platform
-- Focus on a real production sample
+- Focus on a real production sample, like image related applications
 - Add readme, requirements
 - Describe database structure and interactions on readme
 - Multiple format support
 - Data ingestion
 - Query optimization
 - Governance framework
-- Path: `/week11/mini_project/modern_lake.py`
+- Path: `/week11/mini_project/`
 
 ### Format Selection Guide
 1. **Delta Lake**
