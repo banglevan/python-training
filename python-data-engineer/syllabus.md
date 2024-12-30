@@ -1405,7 +1405,7 @@
 - Advanced indexing
 - Query optimization
 - Security implementation
-- Path: `/week12/mini_project/optimized_platform.py`
+- Path: `/week12/mini_project/`
 
 ### Optimization Techniques Guide
 1. **Data Encryption**
