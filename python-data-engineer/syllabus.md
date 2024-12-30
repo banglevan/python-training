@@ -508,11 +508,14 @@
    - Path: `/week7/exercises/iot_integration.py`
 
 ### Mini Project: Real-time Data Pipeline
+- Focus on a specified application
+- Add readme, requirements
+- Describe database structure and interaction on readme
 - Multiple queue integration
 - Message transformation
 - Error handling
 - Monitoring system
-- Path: `/week7/mini_project/realtime_pipeline.py`
+- Path: `/week7/mini_project/`
 
 ### Message System Selection Guide
 1. **Traditional Message Queues**
