@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>My Loans - Book Management System</title>
+    <link rel="stylesheet" href="/static/css/style.css">
+</head>
+<body>
+    <nav class="navbar">
+        <div class="container">
+            <a href="/" class="brand">Book System</a>
+            <div class="nav-links">
+                <a href="/books">Books</a>
+                <a href="/loans">My Loans</a>
+                <a href="/admin" id="adminLink" style="display: none;">Admin</a>
+                <span id="username"></span>
+                <a href="#" onclick="logout()">Logout</a>
+            </div>
+        </div>
+    </nav>
+
+    <main class="container">
+        <div class="loans-container">
+            <h1>My Loans</h1>
+            <div class="loans-list" id="loansList">
+                <!-- Dynamic content will be inserted here -->
+            </div>
+        </div>
+    </main>
+
+    <script>
+        async function loadLoans() {
+            try {
+                const response = await fetch('/api/loans');
+                const data = await response.json();
+                
+                const loansList = document.getElementById('loansList');
+                loansList.innerHTML = ''; // Clear existing content
+                
+                if (!data.data || data.data.length === 0) {
+                    loansList.innerHTML = '<p>You have no active loans.</p>';
+                    return;
+                }
+                
+                data.data.forEach(loan => {
+                    const card = document.createElement('div');
+                    card.className = 'loan-card';
+                    card.innerHTML = `
+                        <div class="loan-details">
+                            <h3>${loan.book.title}</h3>
+                            <p>By ${loan.book.author}</p>
+                            <p>Borrowed: ${new Date(loan.loan_date).toLocaleDateString()}</p>
+                            <p>Due: ${new Date(loan.due_date).toLocaleDateString()}</p>
+                            <p>Status: ${loan.status}</p>
+                        </div>
+                        ${loan.status === 'borrowed' ? 
+                            `<button onclick="returnBook(${loan.id})" class="btn-primary">Return</button>` : 
+                            ''
+                        }
+                    `;
+                    loansList.appendChild(card);
+                });
+            } catch (error) {
+                console.error('Error:', error);
+                document.getElementById('loansList').innerHTML = 
+                    '<p class="error">Error loading loans. Please try again later.</p>';
+            }
+        }
+
+        // Load loans when page loads
+        document.addEventListener('DOMContentLoaded', loadLoans);
+    </script>
+    <script src="/static/js/main.js"></script>
+</body>
+</html> 

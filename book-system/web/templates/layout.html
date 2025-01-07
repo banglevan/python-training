@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Book Management System - {{.Title}}</title>
+    <link rel="stylesheet" href="/static/css/style.css">
+</head>
+<body>
+    <nav class="navbar">
+        <div class="container">
+            <a href="/" class="brand">Book System</a>
+            <div class="nav-links">
+                {{if .User}}
+                    <a href="/books">Books</a>
+                    <a href="/loans">My Loans</a>
+                    {{if eq .User.Role "admin"}}
+                        <a href="/admin">Admin</a>
+                    {{end}}
+                    <span class="user-info">{{.User.Username}}</span>
+                    <button onclick="logout()" class="btn-logout">Logout</button>
+                {{else}}
+                    <a href="/login">Login</a>
+                {{end}}
+            </div>
+        </div>
+    </nav>
+
+    <main class="container">
+        {{template "content" .}}
+    </main>
+
+    <footer class="footer">
+        <div class="container">
+            <p>&copy; 2024 Book Management System</p>
+        </div>
+    </footer>
+
+    <script src="/static/js/main.js"></script>
+</body>
+</html> 
