@@ -6,7 +6,6 @@ import (
 	"log"
 
 	_ "github.com/mattn/go-sqlite3"
-	"golang.org/x/crypto/bcrypt"
 )
 
 type DBManager struct {
@@ -146,45 +145,29 @@ func (m *DBManager) DB() *sql.DB {
 }
 
 func (m *DBManager) initDatabase() error {
-	// Create tables
 	_, err := m.db.Exec(`
-        CREATE TABLE IF NOT EXISTS users (
+        CREATE TABLE IF NOT EXISTS books (
             id INTEGER PRIMARY KEY AUTOINCREMENT,
-            username TEXT UNIQUE NOT NULL,
-            password TEXT NOT NULL,
-            email TEXT,
-            role TEXT NOT NULL,
-            created_at DATETIME DEFAULT CURRENT_TIMESTAMP
+            title TEXT NOT NULL,
+            author TEXT NOT NULL,
+            isbn TEXT,
+            published_year INTEGER,
+            publisher TEXT,
+            description TEXT,
+            category TEXT,
+            stock INTEGER DEFAULT 0,
+            created_by INTEGER,
+            created_at DATETIME DEFAULT CURRENT_TIMESTAMP,
+            updated_at DATETIME DEFAULT CURRENT_TIMESTAMP,
+            image_path TEXT,
+            content_path TEXT,
+            language TEXT,
+            rights TEXT,
+            source_url TEXT,
+            source_id TEXT,
+            format TEXT,
+            file_size INTEGER
         )
     `)
-	if err != nil {
-		return err
-	}
-
-	// Check if admin user exists
-	var count int
-	err = m.db.QueryRow("SELECT COUNT(*) FROM users WHERE username = ?", "admin").Scan(&count)
-	if err != nil {
-		return err
-	}
-
-	// Create admin user if not exists
-	if count == 0 {
-		hashedPassword, err := bcrypt.GenerateFromPassword([]byte("admin123"), bcrypt.DefaultCost)
-		if err != nil {
-			return err
-		}
-
-		_, err = m.db.Exec(`
-            INSERT INTO users (username, password, email, role)
-            VALUES (?, ?, ?, ?)
-        `, "admin", string(hashedPassword), "admin@example.com", "admin")
-
-		if err != nil {
-			return err
-		}
-		log.Printf("Admin user created successfully")
-	}
-
-	return nil
+	return err
 }

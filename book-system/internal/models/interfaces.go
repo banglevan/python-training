@@ -18,6 +18,8 @@ type (
 		Search(query string) ([]Book, error)
 		UpdateStock(id int, quantity int) error
 		Delete(id int) error
+		List() ([]Book, error)
+		Update(book *Book) error
 	}
 
 	LoanService interface {

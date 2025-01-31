@@ -34,7 +34,7 @@ func main() {
 
 	// Initialize handlers
 	authHandler := handlers.NewAuthHandler(userService, []byte("your-secret-key"))
-	bookHandler := handlers.NewBookHandler(bookService)
+	bookHandler := handlers.NewBookHandler(bookService, dbManager.DB())
 	loanHandler := handlers.NewLoanHandler(loanService, store)
 	categoryHandler := handlers.NewCategoryHandler(categoryService)
 	reviewHandler := handlers.NewReviewHandler(reviewService)
@@ -45,6 +45,12 @@ func main() {
 
 	// Static files
 	r.PathPrefix("/static/").Handler(http.StripPrefix("/static/", http.FileServer(http.Dir("web/static"))))
+	r.PathPrefix("/storage/").Handler(
+		http.StripPrefix(
+			"/storage/",
+			http.FileServer(http.Dir("storage")),
+		),
+	)
 
 	// Web routes
 	r.HandleFunc("/", func(w http.ResponseWriter, r *http.Request) {
@@ -68,10 +74,13 @@ func main() {
 	r.HandleFunc("/api/logout", authHandler.Logout).Methods("POST")
 
 	// Book routes
-	r.HandleFunc("/api/books", authHandler.RequireAuth(bookHandler.Create)).Methods("POST")
-	r.HandleFunc("/api/books/{id}", bookHandler.Get).Methods("GET")
-	r.HandleFunc("/api/books/search", bookHandler.Search).Methods("GET")
-	r.HandleFunc("/api/books/{id}/stock", authHandler.RequireAdmin(bookHandler.UpdateStock)).Methods("PUT")
+	r.HandleFunc("/api/books", bookHandler.List).Methods("GET")
+	r.HandleFunc("/api/books/{id}", bookHandler.GetByID).Methods("GET")
+	r.HandleFunc("/api/books/search", bookHandler.List).Methods("GET")
+	r.HandleFunc("/api/books/{id}/stock", bookHandler.Update).Methods("PUT")
+	r.HandleFunc("/api/books", bookHandler.Create).Methods("POST")
+	r.HandleFunc("/api/books/{id}", bookHandler.Update).Methods("PUT")
+	r.HandleFunc("/api/books/{id}", bookHandler.Delete).Methods("DELETE")
 
 	// Loan routes
 	r.HandleFunc("/api/loans", authHandler.RequireAuth(loanHandler.List)).Methods("GET")
@@ -90,6 +99,9 @@ func main() {
 	// Stats routes
 	r.HandleFunc("/api/stats", authHandler.RequireAdmin(statsHandler.GetStats)).Methods("GET")
 	r.HandleFunc("/api/stats/popular-books", statsHandler.GetPopularBooks).Methods("GET")
+
+	// Book routes
+	r.HandleFunc("/books/{id}/read", bookHandler.Read).Methods("GET")
 
 	// Start server
 	port := os.Getenv("PORT")
